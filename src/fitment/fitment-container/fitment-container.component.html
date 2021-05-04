@@ -5,8 +5,8 @@
   </div>
   <nav aria-label="breadcrumb" *ngIf="breadCrumbs?.length > 0">
     <ol class="breadcrumb">
-      <li *ngFor="let filter of breadCrumbs" class="breadcrumb-item">
-        <a (click)="OnItemClick(filter.key, filter.val)">{{filter.val}}</a>
+      <li *ngFor="let filter of breadCrumbs;let i = index" class="breadcrumb-item">
+        <a [ngClass]="{'disabled': breadCrumbs.length == i+1}" (click)="OnItemClick(filter.key, filter.val)">{{filter.val}}</a>
       </li>
     </ol>
   </nav>

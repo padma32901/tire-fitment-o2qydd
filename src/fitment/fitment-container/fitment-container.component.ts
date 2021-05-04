@@ -34,8 +34,6 @@ export class FitmentContainerComponent implements OnInit, OnDestroy {
     this.updateBreadCurmbs(type, value);
     // Reqested data we can pass throguh here if needed .
     switch (type) {
-      case "years":
-        this.getYears();
       case "makes":
         this._store.dispatch(new fromStore.LoadMakes(this.breadCrumbs));
         this.data$ = this._store.pipe(select(fromStore.make));
@@ -59,7 +57,8 @@ export class FitmentContainerComponent implements OnInit, OnDestroy {
       breadCrumbs.push({ key: type, val: value });
       this.breadCrumbs = breadCrumbs;
     } else {
-      breadCrumbs.splice(index, this.breadCrumbs.length - 1);
+      breadCrumbs.splice(index + 1, this.breadCrumbs.length - 1);
+      this.breadCrumbs = breadCrumbs;
     }
 
     this.breadCrumbs.forEach(item => {

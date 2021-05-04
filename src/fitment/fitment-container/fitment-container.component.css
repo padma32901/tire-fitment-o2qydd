@@ -10,3 +10,9 @@ p {
   padding: 40px;
   color: gray;
 }
+
+.disabled {
+  cursor: not-allowed;
+  color: gray;
+  text-decoration: none;
+}
